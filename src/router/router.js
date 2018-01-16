@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 import Home from '../containers/home'
 import Show from '../containers/show'
+import Test from '../containers/Test'
 
 export default class CRouter extends Component {
   requireAuth = (permission, component) => {
@@ -16,6 +17,7 @@ export default class CRouter extends Component {
       <Switch>
         <Route exact path="/main/index" component={Home} />
         <Route exact path="/main/show" component={Show} />
+        <Route exact path="/main/http" component={Test} />
         <Route render={() => <Redirect to="/404" />} />
       </Switch>
     )

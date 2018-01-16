@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom'
-import { Button, WingBlank } from 'antd-mobile'
+import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
 import wpt from '../utils/wpt'
 export default class Home extends Component {
   handleShowSheet = () => {
@@ -10,18 +9,27 @@ export default class Home extends Component {
 			"cancelButtonTitle" : "取消", //返回0
 			"items" : [ "按钮A", "按钮B", "按钮C", "按钮D", "按钮E" ]
     }
-    wpt.showSheet(params)
-        .then(index => alert(index))
-        .catch(err => alert(err))
+    wpt.showSheet(
+      params, 
+      (e) => alert('你选择了' + e.index),
+      (err) => alert(err)
+    )
+  }
+  handleGoToDemo = () => {
+    this.props.history.push('/main/show')
+  }
+  handleGoToHttp = () => {
+    this.props.history.push('/main/http')
   }
   render () {
     return (
       <WingBlank className="home">
-        <div style={{color: 'red', textAlign: 'center'}}>
-          v-platform-react demo
-        </div>
-        <Link to='/main/show'>jsdemo1</Link>
-        <Button type='primary' size='small' onClick={this.handleShowSheet} >showSheet</Button>
+        <WhiteSpace size="lg" />
+        <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
+        <WhiteSpace size="lg" />
+        <Button type='ghost' onClick={this.handleGoToDemo} >去往jsdemo页面</Button>
+        <WhiteSpace size="lg" />
+        <Button type='ghost' onClick={this.handleGoToHttp} >去往网络请求测试页面</Button>
       </WingBlank>
     )
   }
