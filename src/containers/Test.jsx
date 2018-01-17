@@ -1,50 +1,44 @@
-import React, { Component } from 'react';
-import { Button, WingBlank, WhiteSpace, ActivityIndicator } from 'antd-mobile';
-import fetch from '../utils/fetch'
-export default class HttpTest extends Component {
+import React, { Component } from 'react'
+import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { actions } from '../store/welfare'
+const meiImage = (src, key) => <img src={src} key={key} alt="" style={{width: '100%'}}/>
+class HttpTest extends Component {
   constructor () {
     super()
     this.state = {
-      isLoading: false,
-      data: [],
       str: '点击加载数据'
     }
   }
   handleLoadData = () => {
-    this.setState({isLoading: true, str: '福利来袭'})
-    fetch.get('/福利/10/1')
-      .then(res => {
-        this.setState({
-          isLoading: false,
-          data: res.data.results
-        })
-      })
-      .catch(err => {
-        this.setState({isLoading: false})
-        alert('错误' + err)
-      })
+    this.setState({str: '福利来袭'})
+    this.props.fetchWelfare()
   }
   render () {
     return (
       <WingBlank>
-        <WhiteSpace></WhiteSpace>
+        <WhiteSpace />
+        {
+          this.props.welfare.map((item, index) => meiImage(item.url, index))
+        }
+        <WhiteSpace />
         <Button type="primary" onClick={this.handleLoadData}>
           {this.state.str}
-          <ActivityIndicator
-            toast
-            text="Loading..."
-            animating={this.state.isLoading}
-          />
         </Button>
-        <WhiteSpace></WhiteSpace>
-        {
-          this.state.data.map((item, index) => {
-            return (
-              <img src={item.url} alt="" key={index} style={{width: '100%'}}/>
-            )
-          })
-        }
       </WingBlank>
     )
   }
-};
+}
+
+function mapStateToProps (state) {
+  return  { ...state.Welfare }
+}
+function mapDispatchToProps (dispatch) {
+  return {
+    ...bindActionCreators({
+      ...actions
+    }, dispatch)
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(HttpTest);

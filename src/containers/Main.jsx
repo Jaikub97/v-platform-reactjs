@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux';
-import { NavBar, Icon } from 'antd-mobile'
+import { NavBar, Icon, ActivityIndicator } from 'antd-mobile'
 import wpt from '../utils/wpt'
 import Routes from '../router/router'
-import { actions } from '../store/common'
-// const ShowLoading = CommonActions.showLoading
 
 
 class Main extends Component {
@@ -13,20 +10,18 @@ class Main extends Component {
     super()
     this.state = {}
   }
-  componentDidMount () {
-    console.log(this.props)
-    this.props.showLoading()
-  }
-
-
+  
   handleBack = () => {
     const { history, location } = this.props
     if (location.pathname === '/main/index') {
-      wpt.closeApp(function (success) {
-        console.log(success)
-      }, function (fail) {
-        alert(fail)
-      })
+      wpt.closeApp(
+        function (success) {
+          console.log(success)
+        },
+        function (fail) {
+          alert(fail)
+        }
+      )
     } else {
       history.goBack() // 返回上一页
     }
@@ -44,6 +39,12 @@ class Main extends Component {
               <Icon key="1" type="ellipsis" />
             ]}
           > NavBar </NavBar>
+          <ActivityIndicator 
+            animating={this.props.isLoading}
+            size='large'
+            toast
+            text="正在加载..."
+          />
           <Routes />
       </div>
     )
@@ -53,11 +54,11 @@ class Main extends Component {
 function mapStateToProps (state) {
   return  { ...state.Common }
 }
-function mapDispatchToProps (dispatch) {
-  return {
-    ...bindActionCreators({ ...actions }, dispatch)
-  }
-}
+// function mapDispatchToProps (dispatch) {
+//   return {
+//     ...bindActionCreators({ ...actions }, dispatch)
+//   }
+// }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps)(Main);

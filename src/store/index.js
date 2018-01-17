@@ -4,13 +4,15 @@ import thunkMiddleware from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 // reducer
 import CommonReducer from './common'
+import WelfareReducer  from './welfare'
 
 // logger
 const loggerMiddleware = createLogger()
 
 // combineReducers
 const rootReducer = combineReducers({
-  Common: CommonReducer
+  Common: CommonReducer,
+  Welfare: WelfareReducer
 })
 
 // middleware
