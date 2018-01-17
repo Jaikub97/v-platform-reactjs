@@ -1,9 +1,24 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
 import { NavBar, Icon } from 'antd-mobile'
 import wpt from '../utils/wpt'
-import Routes from '../router/router';
-export default class Main extends Component {
-  
+import Routes from '../router/router'
+import { actions } from '../store/common'
+// const ShowLoading = CommonActions.showLoading
+
+
+class Main extends Component {
+  constructor () {
+    super()
+    this.state = {}
+  }
+  componentDidMount () {
+    console.log(this.props)
+    this.props.showLoading()
+  }
+
+
   handleBack = () => {
     const { history, location } = this.props
     if (location.pathname === '/main/index') {
@@ -19,7 +34,6 @@ export default class Main extends Component {
   render () {
     return(
       <div>
-          {/* <div style={{height: '19px',backgroundColor:'#108ee9'}}></div> */}
           <NavBar
             style={{paddingTop: '19px'}}
             mode="dark"
@@ -35,3 +49,15 @@ export default class Main extends Component {
     )
   }
 }
+
+function mapStateToProps (state) {
+  return  { ...state.Common }
+}
+function mapDispatchToProps (dispatch) {
+  return {
+    ...bindActionCreators({ ...actions }, dispatch)
+  }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);
