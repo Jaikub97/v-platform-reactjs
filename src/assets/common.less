@@ -1,0 +1,29 @@
+
+html, body, #root {
+  height: 100%;
+}
+html, body, div, span, a, p {
+  user-select: none
+}
+#root {
+  position: relative;
+}
+
+#bar-header {
+  position: fixed;
+  z-index: 900;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 44px;
+}
+#has-header {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}

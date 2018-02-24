@@ -26,6 +26,7 @@ class HttpTest extends Component {
         <Button type="primary" onClick={this.handleLoadData}>
           {this.state.str}
         </Button>
+        <WhiteSpace />
       </WingBlank>
     )
   }
