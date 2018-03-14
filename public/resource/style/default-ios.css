@@ -33,7 +33,7 @@
 .platform-ios.platform-cordova:not(.fullscreen) .tabs.tabs-top {
     top: 44px;
 } */
-
+/*
 .bar-header:not(.bar-subheader) {
     height: 64px;
     margin-top: 0 !important;
@@ -70,7 +70,7 @@
     top: 44px;
 }
 
-/*微平台样式*/
+
 
 .has-subheader {
     top: 108px!important;
@@ -113,7 +113,6 @@
 }
 
 .c-ionslide2 {
-    /*overflow-y: overlay;*/
     overflow-y: auto;
     overflow-x: hidden;
     height: 485px!important;
@@ -132,4 +131,9 @@ input.yearMonthDayTB {
 }
 #has-header {
     top: 64px !important;
+}
+*/
+
+.v-p-header {
+    padding-top: 20px!important;
 }

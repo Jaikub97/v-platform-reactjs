@@ -37,7 +37,7 @@
 			if (isAndroid) {
 				document.write('<script src="resource\/android\/cordova.js"><\/script>');
 				document.write('<script src="resource\/android\/cordova_plugins.js"><\/script>');
-				document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
+				// document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
 			} else {
 				//IOS 自动引入，不需要人工引入
 				if (isiOS) {
@@ -46,7 +46,7 @@
 					if (appVersion.indexOf("-") > 0 || parseInt(appVersion) < 11) {
 						document.write('<link rel="stylesheet" href="resource\/style\/default-ios.css"\/>');
 					} else {
-						document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
+						// document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
 					}
 				}
 			}
