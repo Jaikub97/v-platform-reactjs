@@ -1,26 +1,31 @@
 import React, { Component } from 'react'
 import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { actions } from '../store/welfare'
+import Axios from '../utils/fetch'
 const meiImage = (src, key) => <img src={src} key={key} alt="" style={{width: '100%'}}/>
-class HttpTest extends Component {
+export default class HttpTest extends Component {
   constructor () {
     super()
     this.state = {
-      str: '点击加载数据'
+      str: '点击加载数据',
+      welfare: []
     }
   }
   handleLoadData = () => {
     this.setState({str: '福利来袭'})
-    this.props.fetchWelfare()
+    // this.props.fetchWelfare()
+    Axios.get('/福利/10/2').then(res => {
+      this.setState({
+        welfare: res.results
+      })
+    })
+
   }
   render () {
     return (
       <WingBlank>
         <WhiteSpace />
         {
-          this.props.welfare.map((item, index) => meiImage(item.url, index))
+          this.state.welfare.map((item, index) => meiImage(item.url, index))
         }
         <WhiteSpace />
         <Button type="primary" onClick={this.handleLoadData}>
@@ -31,15 +36,3 @@ class HttpTest extends Component {
     )
   }
 }
-
-function mapStateToProps (state) {
-  return  { ...state.Welfare }
-}
-function mapDispatchToProps (dispatch) {
-  return {
-    ...bindActionCreators({
-      ...actions
-    }, dispatch)
-  }
-}
-export default connect(mapStateToProps, mapDispatchToProps)(HttpTest);

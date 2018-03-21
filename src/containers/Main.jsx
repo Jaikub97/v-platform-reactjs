@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 import { NavBar, Icon, ActivityIndicator, Popover } from 'antd-mobile'
 import wpt from '../utils/wpt'
 import Routes from '../router/router'
@@ -40,7 +39,8 @@ class Main extends Component {
   render () {
     return [
       <NavBar
-        id='bar-header' key='header-bar'
+        className='v-header-bar'
+        key='header-bar'
         mode="dark"
         icon={<Icon type="left" />}
         onLeftClick={ this.handleBack }
@@ -78,27 +78,17 @@ class Main extends Component {
       ,
       <ActivityIndicator 
         key="loading"
-        animating={this.props.isLoading}
+        animating={false}
         size='large'
         toast
         text="正在加载..."
       />
       ,
-      <div id="has-header" key="has-header">
+      <div id="v-container" key="v-container">
         <Routes />
       </div>
     ]
   }
 }
 
-function mapStateToProps (state) {
-  return  { ...state.Common }
-}
-// function mapDispatchToProps (dispatch) {
-//   return {
-//     ...bindActionCreators({ ...actions }, dispatch)
-//   }
-// }
-
-
-export default connect(mapStateToProps)(Main);
+export default Main;

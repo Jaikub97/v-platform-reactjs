@@ -35,19 +35,16 @@
 			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 			//根据配置来引入
 			if (isAndroid) {
-				document.write('<script src="resource\/android\/cordova.js"><\/script>');
-				document.write('<script src="resource\/android\/cordova_plugins.js"><\/script>');
-				document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
+				document.writeln('<script src="resource\/android\/cordova.js"><\/script>');
+				document.writeln('<script src="resource\/android\/cordova_plugins.js"><\/script>');
+				// document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
 			} else {
 				//IOS 自动引入，不需要人工引入
 				if (isiOS) {
-					document.write('<script src="resource\/ios\/cordova.js"><\/script>');
-					var appVersion = navigator.appVersion.substr(navigator.appVersion.indexOf("iPhone OS") + 10, 2);
-					if (appVersion.indexOf("-") > 0 || parseInt(appVersion) < 11) {
-						document.write('<link rel="stylesheet" href="resource\/style\/default-ios.css"\/>');
-					} else {
-						document.write('<link rel="stylesheet" href="resource\/style\/default-and.css"/>');
-					}
+          var iOSStyle = document.createElement('style');
+          iOSStyle.innerHTML = '.v-header-bar {padding-top: 19px!important;}';
+          document.head.appendChild(iOSStyle);
+          document.writeln('<script src="resource\/ios\/cordova.js"><\/script>');
 				}
 			}
     </script>
