@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
+import { LayoutNav } from '../components'
+import CSSTransitionGroup from 'react-addons-css-transition-group'
 import Axios from '../utils/fetch'
+
 const meiImage = (src, key) => <img src={src} key={key} alt="" style={{width: '100%'}}/>
 export default class HttpTest extends Component {
   constructor () {
@@ -21,18 +24,29 @@ export default class HttpTest extends Component {
 
   }
   render () {
-    return (
-      <WingBlank>
+    return [
+      <LayoutNav key='Layout' {...this.props} navName="测试"/>,
+      <WingBlank key='body'>
         <WhiteSpace />
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionAppear={true}
+          transitionAppearTimeout={1500}
+          transitionEnterTimeout={1500}
+          transitionLeaveTimeout={1300}
+          transitionEnter={true}
+          transitionLeave={true}
+        >
         {
           this.state.welfare.map((item, index) => meiImage(item.url, index))
         }
+        </CSSTransitionGroup>
         <WhiteSpace />
         <Button type="primary" onClick={this.handleLoadData}>
           {this.state.str}
         </Button>
         <WhiteSpace />
       </WingBlank>
-    )
+    ]
   }
 }

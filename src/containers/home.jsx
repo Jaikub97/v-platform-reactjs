@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
+import { LayoutNav } from '../components'
 import wpt from '../utils/wpt'
 export default class Home extends Component {
   handleShowSheet = () => {
@@ -22,8 +23,9 @@ export default class Home extends Component {
     this.props.history.push('/main/http')
   }
   render () {
-    return (
-      <WingBlank className="home">
+    return [
+      <LayoutNav key="layoutNav" navName='首页' {...this.props}/>,
+      <WingBlank key="home" className="home">
         <WhiteSpace size="lg" />
         <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
         <WhiteSpace size="lg" />
@@ -31,6 +33,6 @@ export default class Home extends Component {
         <WhiteSpace size="lg" />
         <Button type='ghost' onClick={this.handleGoToHttp} >去往网络请求测试页面</Button>
       </WingBlank>
-    )
+    ]
   }
 }
