@@ -1,6 +1,14 @@
+/*
+ * @Author: mr.mshao 
+ * @Date: 2018-03-29 10:42:13 
+ * @Last Modified by: mr.mshao
+ * @Last Modified time: 2018-03-29 10:56:05
+ */
+
 import React, { Component } from 'react';
 import wpt from '../utils/wpt'
 import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
+import { LayoutNav } from '../components'
 export default class Show extends Component {
   handleGetUserInfo = () => {
     wpt.getUserInfo(
@@ -135,34 +143,37 @@ export default class Show extends Component {
     )
   }
   render () {
-    return (
-      <WingBlank>
-    
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleGetUserInfo}>用户信息</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleSelectPhote}>选择图片</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleCheckNetStatus}>获取网络</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleGetPhoneInfo}>获取设备信息</Button>
+    return [
+        <LayoutNav key='v-header' title="V平台API"/>,
+        <div key='v-container' className="v-container">
+          <WingBlank>
         
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleSelectDayAndTime}>时间控件 yyyy-MM-dd HH:mm:ss</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleGetUserInfo}>用户信息</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleSelectPhote}>选择图片</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleCheckNetStatus}>获取网络</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleGetPhoneInfo}>获取设备信息</Button>
+            
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleSelectDayAndTime}>时间控件 yyyy-MM-dd HH:mm:ss</Button>
 
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleGetLocation}>定位信息</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleGetLocation}>定位信息</Button>
 
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleTakeTel}>拨打电话</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleSendSMS}>发送短信</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleCurrentPageParams}>当前页面参数</Button>
-        <WhiteSpace />
-        <Button type='ghost' onClick={this.handleScanCode}>扫描二维码</Button>
-      
-      </WingBlank>
-    )
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleTakeTel}>拨打电话</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleSendSMS}>发送短信</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleCurrentPageParams}>当前页面参数</Button>
+            <WhiteSpace />
+            <Button type='ghost' onClick={this.handleScanCode}>扫描二维码</Button>
+          
+          </WingBlank>
+        </div>
+    ]
   }
 };

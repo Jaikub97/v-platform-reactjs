@@ -2,14 +2,13 @@
  * @Author: mr.mshao 
  * @Date: 2018-01-18 14:22:49 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-01-18 15:40:10
+ * @Last Modified time: 2018-03-29 10:41:23
  */
 
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Icon, Popover } from 'antd-mobile';
-import './index.less'
 const Item = Popover.Item
 // const myImg = src => <img src={`https://gw.alipayobjects.com/zos/rmsportal/${src}.svg`} className="am-icon am-icon-xs" alt="" />
 class myPopover extends Component {

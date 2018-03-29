@@ -1,7 +1,20 @@
+/*
+ * @Author: mr.mshao 
+ * @Date: 2018-03-29 10:41:59 
+ * @Last Modified by: mr.mshao
+ * @Last Modified time: 2018-03-29 15:44:14
+ */
+
 import React, { Component } from 'react';
 import { Button, WingBlank, WhiteSpace } from 'antd-mobile'
 import { LayoutNav } from '../components'
 import wpt from '../utils/wpt'
+import config from '../utils/config'
+const RightContent = ({click}) => (
+  <div onClick={ click }>
+    Right
+  </div>
+)
 export default class Home extends Component {
   handleShowSheet = () => {
     const params = {
@@ -17,22 +30,27 @@ export default class Home extends Component {
     )
   }
   handleGoToDemo = () => {
-    this.props.history.push('/main/show')
+    this.props.history.push('/show')
   }
   handleGoToHttp = () => {
-    this.props.history.push('/main/http')
+    this.props.history.push('/http')
+  }
+  handleCliclRightContent = () => {
+    alert(JSON.stringify(config.getUserInfo))
   }
   render () {
     return [
-      <LayoutNav key="layoutNav" navName='首页' {...this.props}/>,
-      <WingBlank key="home" className="home">
-        <WhiteSpace size="lg" />
-        <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
-        <WhiteSpace size="lg" />
-        <Button type='ghost' onClick={this.handleGoToDemo} >去往jsdemo页面</Button>
-        <WhiteSpace size="lg" />
-        <Button type='ghost' onClick={this.handleGoToHttp} >去往网络请求测试页面</Button>
-      </WingBlank>
+      <LayoutNav key="v-header" title="首页" rightContent={<RightContent click={this.handleCliclRightContent} />} />,
+      <div key="v-container" className="v-container">
+        <WingBlank size="sm">
+          <WhiteSpace size="lg" />
+          <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
+          <WhiteSpace size="lg" />
+          <Button type='ghost' onClick={this.handleGoToDemo} >去往jsdemo页面</Button>
+          <WhiteSpace size="lg" />
+          <Button type='ghost' onClick={this.handleGoToHttp} >去往网络请求测试页面</Button>
+        </WingBlank>
+      </div>
     ]
   }
 }

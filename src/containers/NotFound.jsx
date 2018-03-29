@@ -1,3 +1,10 @@
+/*
+ * @Author: mr.mshao 
+ * @Date: 2018-03-29 10:42:05 
+ * @Last Modified by:   mr.mshao 
+ * @Last Modified time: 2018-03-29 10:42:05 
+ */
+
 import React, { Component } from 'react';
 import { Button, WingBlank } from 'antd-mobile'
 import wpt from '../utils/wpt'
