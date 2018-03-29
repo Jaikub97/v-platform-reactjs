@@ -1,0 +1,4 @@
+window.USERINFO = {
+  id: '',
+  orgId: ''
+}
