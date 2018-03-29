@@ -20,7 +20,6 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
-    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
     <script type="text/javascript">
       if ('addEventListener' in document) {
         document.addEventListener('DOMContentLoaded', function() {
@@ -35,18 +34,17 @@
 			var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 			//根据配置来引入
 			if (isAndroid) {
-				document.writeln('<script src="resource\/android\/cordova.js"><\/script>');
-				document.writeln('<script src="resource\/android\/cordova_plugins.js"><\/script>');
+				document.write('<script src="extendlibs\/android\/cordova.js"><\/script>');
+				document.write('<script src="extendlibs\/android\/cordova_plugins.js"><\/script>');
 			} else {
 				//IOS 自动引入，不需要人工引入
-				if (isiOS) {
-          var iOSStyle = document.createElement('style');
-          iOSStyle.innerHTML = '.v-header-bar {padding-top: 19px!important;}';
-          document.head.appendChild(iOSStyle);
-          document.writeln('<script src="resource\/ios\/cordova.js"><\/script>');
-				}
+        var iOSStyle = document.createElement('style');
+        iOSStyle.innerHTML = '.v-wrapper .v-header{padding-top:19px!important;}';
+        document.head.appendChild(iOSStyle);
+        document.write('<script src="extendlibs\/ios\/cordova.js"><\/script>');
 			}
     </script>
+    <script src="https://as.alipayobjects.com/g/component/fastclick/1.0.6/fastclick.js"></script>
   </head>
   <body>
     <noscript>
