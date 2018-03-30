@@ -1,4 +1,22 @@
+
 ### 简要说明
+------
+
+#### 开始项目
+
+clone项目到本地，进入项目文件夹，安装依赖
+
+```javascript
+git clone https://github.com/Mr0mshao/v-platform-reactjs.git
+cd v-platform-reactjs
+npm install or yarn installl
+```
+然后运行项目
+
+```bash
+npm start or yarn start
+```
+
 ------
 
 #### 主要说明src目录下（我们平时编写代码主要就在这个目录里面）
@@ -7,7 +25,7 @@
 |assets|这里主要放静态资源文件|单独的样式文件也可以参考本项目的方式，全局的样式文件建议在此申明|
 |components|木偶组建目录|在最外层index.js中	`export ` ,具体参考示例|
 |containers|HOC||
-|utils|包含：config, axios,userInfo, wpt等js文件|userInfo.js文件定义全局`USERINFO`变量，引用参考container.js|
+|utils|包含：config, axios,userInfo, wpt等js文件|userInfo.js文件定义全局`USERINFO`变量，引用参考container/home.jsx|
 |index.js|项目入口文件||
 |Layout.jsx|Layout|这里定义路由过渡效果|
 |Router.js|路由|react-router-dom v4.2版本，具体实用参考其官方文档|
@@ -30,7 +48,6 @@
 
 ```javascript
 "react-addons-css-transition-group": "^15.6.2",
-"style-loader": "0.19.0",
 "less": "^2.7.3",
 "less-loader": "^4.0.5",
 ```
