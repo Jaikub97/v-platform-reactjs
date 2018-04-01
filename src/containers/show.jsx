@@ -136,7 +136,7 @@ export default class Show extends Component {
   }
   render () {
     return (
-      <WingBlank>
+      <WingBlank size='sm' style={{height: '100%'}}>
     
         <WhiteSpace />
         <Button type='ghost' onClick={this.handleGetUserInfo}>用户信息</Button>

@@ -1,29 +1,76 @@
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  -webkit-font-smoothing: antialiased; 
+  -webkit-text-size-adjust: none;
+  -webkit-user-select: none; 
+}
+#root {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    .v-header {
+      background-color: #108fe9;
+    }
+    .v-container {
+      position:relative; 
+      flex: 1;  
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+      background-color:#eee;
+    }
+}
 
-// html, body, #root {
-//   height: 100%;
-// }
-// html, body, div, span, a, p {
-//   user-select: none
-// }
-// #root {
-//   position: relative;
-// }
+.right-enter {
+	opacity: 0;
+    transform: translate3d(100%, 0, 0);
+}
+.right-enter.right-enter-active {
+	opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+.right-leave {
+	opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+.right-leave.right-leave-active {
+	opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
 
-// #bar-header {
-//   position: fixed;
-//   z-index: 900;
-//   top: 0;
-//   left: 0;
-//   right: 0;
-//   height: 44px;
-// }
-// #has-header {
-//   position: absolute;
-//   top: 44px;
-//   left: 0;
-//   right: 0;
-//   bottom: 0;
-//   overflow-x: hidden;
-//   overflow-y: auto;
-//   -webkit-overflow-scrolling: touch;
-// }
+.left-enter {
+	opacity: 0;
+    transform: translate3d(-100%, 0, 0);
+}
+.left-enter.left-enter-active {
+	opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+.left-leave {
+	opacity: 1;
+    transform: translate3d(0, 0, 0);
+}
+.left-leave.left-leave-active {
+	opacity: 0;
+    transform: translate3d(100%, 0, 0);
+    transition: transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+}
+
+.animateList-enter {
+    opacity: 0.1;
+}
+.animateList-enter.animateList-enter-active {
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+}
+.animateList-leave {
+    opacity: 1;
+}
+.animateList-leave.animateList-leave-active {
+    opacity: 0.1;
+    transition: opacity 1s ease-in-out;
+}
+

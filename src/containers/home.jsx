@@ -16,14 +16,14 @@ export default class Home extends Component {
     )
   }
   handleGoToDemo = () => {
-    this.props.history.push('/main/show')
+    this.props.history.push('/show')
   }
   handleGoToHttp = () => {
-    this.props.history.push('/main/http')
+    this.props.history.push('/http')
   }
   render () {
     return (
-      <WingBlank className="home">
+      <WingBlank size='sm' style={{height: '100%'}}>
         <WhiteSpace size="lg" />
         <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
         <WhiteSpace size="lg" />

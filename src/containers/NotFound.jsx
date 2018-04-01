@@ -7,7 +7,7 @@ export default class NotFound extends Component {
   }
   render () {
     return (
-      <WingBlank>
+      <WingBlank size='sm' style={{height: '100%'}}>
         <p style={{textAlign: 'center'}}>404 NotFound</p>
         <p>
           <Button type='primary' onClick={this.handleColseApp}>关闭应用</Button>
