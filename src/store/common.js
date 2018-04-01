@@ -13,6 +13,10 @@ const initialState = {
   errInfo: {
     status: false,
     msg: ''
+  },
+  userInfo: {
+    id: '16362',
+    orgId: '141'
   }
 }
 
