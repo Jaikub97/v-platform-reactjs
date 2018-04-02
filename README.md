@@ -25,7 +25,7 @@ npm start or yarn start
 |assets|这里主要放静态资源文件|单独的样式文件也可以参考本项目的方式，全局的样式文件建议在此申明|
 |components|木偶组建目录|在最外层index.js中	`export ` ,具体参考示例|
 |containers|HOC||
-|utils|包含：config, axios,userInfo, wpt等js文件|userInfo.js文件定义全局`USERINFO`变量，引用参考container/home.jsx|
+|utils|包含：config, axios,userInfo, wpt等js文件|userInfo.js文件定义全局`USERINFO`变量，引用参考containers/home.jsx|
 |index.js|项目入口文件||
 |Layout.jsx|Layout|这里定义路由过渡效果|
 |Router.js|路由|react-router-dom v4.2版本，具体实用参考其官方文档|
@@ -47,7 +47,7 @@ npm start or yarn start
 * 其他依赖
 
 ```javascript
-"react-addons-css-transition-group": "^15.6.2",
+"react-transition-group": "^2.3.0",
 "less": "^2.7.3",
 "less-loader": "^4.0.5",
 ```
@@ -131,7 +131,15 @@ export default {
 ----
 
 
+> ###### BUG修改记录
 
+|时间|组建|备注|
+|:-------:|:-------------:| :----------:|
+|2018.03.31|react-transition-group|过渡效果，路由切换中，子组建挂载两次，componentDidMount钩子函数执行2次|
+
+
+
+------
 
 
 
