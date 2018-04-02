@@ -2,39 +2,32 @@
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:42:28 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-03-29 16:55:13
+ * @Last Modified time: 2018-04-02 09:26:57
  */
-
-import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import CSSTransitionGroup from 'react-addons-css-transition-group'
-
-class Layout extends Component {
-  constructor () {
-    super()
-    this.state = {
-      transitionName: 'left',
-    }
-  }
-  componentWillReceiveProps () {
-    const { action } = this.props.history
-    action === 'PUSH' ? this.setState({transitionName: 'right'}) : this.setState({transitionName: 'left'})
-  }
-  render () {
-    return (
-      <CSSTransitionGroup
-        transitionName={this.state.transitionName}
-        component={"div"}
-        className="v-root"
-        transitionAppear={true}
-        transitionAppearTimeout={500}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
-        <div key={this.props.location.pathname} className="v-wrapper">{this.props.children}</div>
-      </CSSTransitionGroup>
-    )
-  }
-}
-
-export default withRouter(Layout);
+import React from 'react'
+import { TransitionGroup, CSSTransition} from 'react-transition-group'
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import NotFound from './containers/NotFound';
+import Home from './containers/home'
+import Show from './containers/show'
+import Test from './containers/Test'
+export default () => (
+  <Router>
+    <Route render={({ history, location}) => (
+      <TransitionGroup className="v-root">
+        <CSSTransition
+          timeout={500}
+          classNames={history.action === 'PUSH' ? 'right' : 'left'}
+          key={location.pathname}
+        >
+          <Switch location={location}>
+            <Route exact path="/" component={Home} />
+            <Route path="/show" component={Show} />
+            <Route path="/http" component={Test} />
+            <Route path="*" component={NotFound}/>
+          </Switch>
+        </CSSTransition>
+      </TransitionGroup>
+    )}/>
+  </Router>
+)

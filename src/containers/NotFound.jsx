@@ -1,8 +1,8 @@
 /*
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:42:05 
- * @Last Modified by:   mr.mshao 
- * @Last Modified time: 2018-03-29 10:42:05 
+ * @Last Modified by: mr.mshao
+ * @Last Modified time: 2018-04-01 23:49:13
  */
 
 import React, { Component } from 'react';
@@ -14,12 +14,9 @@ export default class NotFound extends Component {
   }
   render () {
     return (
-      <WingBlank>
+      <WingBlank className="v-wrapper">
         <p style={{textAlign: 'center'}}>404 NotFound</p>
-        <p>
-          <Button type='primary' onClick={this.handleColseApp}>关闭应用</Button>
-        </p>
-        <Button type="primary" inline size="small" style={{ marginRight: '4px' }}>primary</Button>
+        <Button type='primary' onClick={this.handleColseApp}>关闭应用</Button>
       </WingBlank>
     )
   }

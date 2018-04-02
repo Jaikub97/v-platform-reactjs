@@ -2,7 +2,7 @@
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:42:13 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-03-29 10:56:05
+ * @Last Modified time: 2018-04-01 23:48:09
  */
 
 import React, { Component } from 'react';
@@ -143,37 +143,37 @@ export default class Show extends Component {
     )
   }
   render () {
-    return [
-        <LayoutNav key='v-header' title="V平台API"/>,
-        <div key='v-container' className="v-container">
-          <WingBlank>
-        
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleGetUserInfo}>用户信息</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleSelectPhote}>选择图片</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleCheckNetStatus}>获取网络</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleGetPhoneInfo}>获取设备信息</Button>
-            
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleSelectDayAndTime}>时间控件 yyyy-MM-dd HH:mm:ss</Button>
-
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleGetLocation}>定位信息</Button>
-
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleTakeTel}>拨打电话</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleSendSMS}>发送短信</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleCurrentPageParams}>当前页面参数</Button>
-            <WhiteSpace />
-            <Button type='ghost' onClick={this.handleScanCode}>扫描二维码</Button>
+    return (
+      <div className="v-wrapper">
+        <LayoutNav key='v-header' title="V平台API"/>
+        <WingBlank className="v-container">
+      
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleGetUserInfo}>用户信息</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleSelectPhote}>选择图片</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleCheckNetStatus}>获取网络</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleGetPhoneInfo}>获取设备信息</Button>
           
-          </WingBlank>
-        </div>
-    ]
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleSelectDayAndTime}>时间控件 yyyy-MM-dd HH:mm:ss</Button>
+
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleGetLocation}>定位信息</Button>
+
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleTakeTel}>拨打电话</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleSendSMS}>发送短信</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleCurrentPageParams}>当前页面参数</Button>
+          <WhiteSpace />
+          <Button type='ghost' onClick={this.handleScanCode}>扫描二维码</Button>
+        
+        </WingBlank>
+      </div>
+    )
   }
 };

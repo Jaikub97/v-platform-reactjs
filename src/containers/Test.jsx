@@ -2,16 +2,16 @@
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:42:18 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-03-29 18:32:39
+ * @Last Modified time: 2018-04-01 23:47:04
  */
 
 import React, { Component } from 'react'
 import { WingBlank, WhiteSpace } from 'antd-mobile'
 import { LayoutNav, Footer } from '../components'
-import CSSTransitionGroup from 'react-addons-css-transition-group'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Axios from '../utils/axios'
 
-const meiImage = (src, key) => <img src={src} key={key} alt="" style={{width: '100%'}}/>
+const MeiImage = ({src, key}) => <img src={src} key={key} alt="" style={{width: '100%'}}/>
 export default class HttpTest extends Component {
   constructor () {
     super()
@@ -30,28 +30,24 @@ export default class HttpTest extends Component {
 
   }
   render () {
-    return [
-      <LayoutNav key="v-header" title='网络请求测试'/>,
-      <div key="v-container" className="v-container">
-        <WingBlank size="sm">
+    return (
+      <div className="v-wrapper">
+        <LayoutNav title='网络请求测试'/>
+        <WingBlank size="sm" className="v-container">
           <WhiteSpace />
-          <CSSTransitionGroup
-            transitionName="animateList"
-            // transitionAppear={true}
-            transitionAppearTimeout={1500}
-            transitionEnterTimeout={1500}
-            transitionLeaveTimeout={1300}
-            // transitionEnter={true}
-            // transitionLeave={true}
-          >
+          <TransitionGroup>
           {
-            this.state.welfare.map((item, index) => meiImage(item.url, index))
+            this.state.welfare.map((item, index) => (
+              <CSSTransition classNames='animateList' timeout={500} key={index}>
+                <MeiImage src={item.url} key={index}/>
+              </CSSTransition>
+            ))
           }
-          </CSSTransitionGroup>
+          </TransitionGroup>
           <WhiteSpace />
         </WingBlank>
-      </div>,
-      <Footer key='v-footer' type="primary" onClick={this.handleLoadData} title={this.state.str}/>
-    ]
+        <Footer type="primary" onClick={this.handleLoadData} title={this.state.str}/> 
+      </div>
+    )
   }
 }

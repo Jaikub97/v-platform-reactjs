@@ -2,7 +2,7 @@
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:41:30 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-03-29 15:27:27
+ * @Last Modified time: 2018-04-01 23:51:28
  */
 
 import React from 'react';
@@ -26,7 +26,6 @@ const LayoutNav = ({ title, rightContent, ...props }) => {
       history.goBack() // 返回上一页
     }
   }
-
   return (
     <NavBar
       className='v-header'

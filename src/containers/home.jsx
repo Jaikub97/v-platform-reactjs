@@ -2,7 +2,7 @@
  * @Author: mr.mshao 
  * @Date: 2018-03-29 10:41:59 
  * @Last Modified by: mr.mshao
- * @Last Modified time: 2018-03-30 00:40:39
+ * @Last Modified time: 2018-04-01 23:45:51
  */
 
 import React, { Component } from 'react';
@@ -39,10 +39,10 @@ export default class Home extends Component {
     alert(JSON.stringify(config.getUserInfo))
   }
   render () {
-    return [
-      <LayoutNav key="v-header" title="首页" rightContent={<RightContent click={this.handleCliclRightContent} />} />,
-      <div key="v-container" className="v-container">
-        <WingBlank size="sm">
+    return (
+      <div className="v-wrapper">
+        <LayoutNav title="首页" rightContent={<RightContent click={this.handleCliclRightContent} />} />
+        <WingBlank size="sm" className="v-container">
           <WhiteSpace size="lg" />
           <Button type='ghost' onClick={this.handleShowSheet} >ActionSheet组件</Button>
           <WhiteSpace size="lg" />
@@ -51,6 +51,6 @@ export default class Home extends Component {
           <Button type='ghost' onClick={this.handleGoToHttp} >去往网络请求测试页面</Button>
         </WingBlank>
       </div>
-    ]
+    )
   }
 }
