@@ -8,8 +8,13 @@ clone项目到本地，进入项目文件夹，安装依赖
 
 ```javascript
 git clone https://github.com/Mr0mshao/v-platform-reactjs.git
-cd v-platform-reactjs
-npm install or yarn installl
+cd ./v-platform-reactjs
+git branch -a
+git checkout origin/v-platform-1.0
+git branch template
+git checkout template
+npm install or yarn install
+npm start or yarn start
 ```
 然后运行项目
 
