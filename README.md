@@ -14,7 +14,6 @@ git checkout origin/v-platform-1.0
 git branch template
 git checkout template
 npm install or yarn install
-npm start or yarn start
 ```
 然后运行项目
 
